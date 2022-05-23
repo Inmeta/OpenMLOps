@@ -1,3 +1,20 @@
+provider "kubernetes" {
+  config_path    = "~/.kube/config"
+}
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
+
+terraform {
+    backend "s3" {
+    bucket = "demo4nic-tfstate"
+    key    = "openmlops/terraform.tfstate"
+    region = "eu-west-1"
+  }
+}
+
 resource "kubernetes_namespace" "daskhub_namespace" {
   metadata {
     name = "daskhub"

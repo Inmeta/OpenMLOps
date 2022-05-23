@@ -26,7 +26,7 @@ kratos:
         password:
           enabled: true
         oidc:
-          enabled: true
+          enabled: false
           config:
             providers:
               ${indent(14, oidc_providers_config)}
