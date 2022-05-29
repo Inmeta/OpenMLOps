@@ -1,16 +1,16 @@
 provider "kubernetes" {
-  config_path    = "~/.kube/config"
+  config_path    = "./kubeconfig_eks-mlops2"
 }
 provider "helm" {
   kubernetes {
-    config_path = "~/.kube/config"
+    config_path = "./kubeconfig_eks-mlops2"
   }
 }
 
 terraform {
     backend "s3" {
     bucket = "demo4nic-tfstate"
-    key    = "openmlops/terraform.tfstate"
+    key    = "openmlops2/terraform.tfstate"
     region = "eu-west-1"
   }
 }
