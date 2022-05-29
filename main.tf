@@ -31,6 +31,9 @@ resource "kubernetes_service_account" "daskhub-sa" {
   metadata {
     name      = "daskhub-sa"
     namespace = kubernetes_namespace.daskhub_namespace.metadata[0].name
+    annotations = var.jupyterhub_singleuser_aws_iam_role_arn == null ? {} : {
+      "eks.amazonaws.com/role-arn" : var.jupyterhub_singleuser_aws_iam_role_arn
+    }
   }
 }
 

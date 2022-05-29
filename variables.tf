@@ -326,3 +326,9 @@ variable "kratos_cors_enabled_url" {
   type = string
   default = null
 }
+
+variable "jupyterhub_singleuser_aws_iam_role_arn" {
+  description = "ARN of AWS service account attached to jupyterhub notebook environment"
+  type        = string
+  default     = null
+}
