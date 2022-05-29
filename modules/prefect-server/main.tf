@@ -5,7 +5,7 @@ resource "helm_release" "prefect-server" {
   dependency_update = true
   repository = "https://prefecthq.github.io/server/"
   chart = "prefect-server"
-  version = "2021.03.10"
+  version = "2022.04.14"
 
   set {
     name = "jobs.createTenant.enabled"
