@@ -38,3 +38,6 @@ docs/_build/
 
 # Mac OS DSStore
 *.DS_Store
+
+# Kubeconfig
+kubeconfig*
