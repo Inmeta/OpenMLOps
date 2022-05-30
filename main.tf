@@ -25,6 +25,8 @@ module "dask-jupyterhub" {
   count = var.install_jupyterhub ? 1 : 0
   source    = "./modules/dask-jupyterhub"
   namespace = kubernetes_namespace.daskhub_namespace.metadata[0].name
+  singleuser_profile_list = var.daskhub_singleuser_profile_list
+
 }
 
 resource "kubernetes_service_account" "daskhub-sa" {

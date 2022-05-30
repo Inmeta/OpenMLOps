@@ -1,8 +1,11 @@
-FROM jupyter/scipy-notebook:hub-1.4.2
+FROM jupyter/scipy-notebook:hub-2.3.0
 RUN set -ex \
    && pip install \
-   'prefect==0.14.12' \
-   'mlflow==1.14.1' \
-   'seldon-core==1.6.0' \
+   'prefect==1.2.1' \
+   'mlflow==1.26.1' \
+   'seldon-core==1.12.0' \
    'dask==2021.7.0' \
-   'dask-kubernetes==2021.3.1'
+   'dask-kubernetes==2021.3.1' \
+   'scikit-learn==1.1.1' \
+   'kubernetes' \
+   'boto3'

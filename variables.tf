@@ -332,3 +332,25 @@ variable "jupyterhub_singleuser_aws_iam_role_arn" {
   type        = string
   default     = null
 }
+
+variable "daskhub_singleuser_profile_list" {
+  description = "List of images which the user can select to spawn a server"
+  type = list(
+    object({
+      display_name = string
+      description  = string
+      default      = bool
+      kubespawner_override = object({
+        image = string
+      })
+  }))
+
+  default = [{
+      display_name = "OpenMLOps client environment"
+      description  = "Notebook with OpenMLOps required client libraries installed. <br> Image: drtools/openmlops-notebook:v1.4"
+      default      = true
+      kubespawner_override = {
+        image = "drtools/openmlops-notebook:v1.4"
+      }
+  }]
+}
